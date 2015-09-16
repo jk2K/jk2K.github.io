@@ -1,4 +1,4 @@
-title: custom-ssh-welcome-message-in-ubuntu.md
+title: 自定义 ubuntu ssh 欢迎信息
 date: 2015-09-14 16:34:16
 tags:
 ---
