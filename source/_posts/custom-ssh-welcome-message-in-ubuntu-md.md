@@ -1,6 +1,7 @@
 title: 自定义 ubuntu ssh 欢迎信息
 date: 2015-09-14 16:34:16
 tags:
+- ubuntu
 ---
 ##步骤
 1. 打开`/etc/update-motd.d`, 这个目录下面的文件会在登录成功后按照序号的顺序先后运行
