@@ -8,58 +8,69 @@ tags:
 
 ##解决方案
 1. 下载新版本的 `apk`
-```java
-public void downloadNewVersion() {
-    mDownloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-    // apkDownloadUrl 是 apk 的下载地址
-    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(apkDownloadUrl));
-    // 获取下载队列 id
-    enqueueId = mDownloadManager.enqueue(request);
-}
-```
+    ```java
+    public void downloadNewVersion() {
+        mDownloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+        // apkDownloadUrl 是 apk 的下载地址
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(apkDownloadUrl));
+        // 获取下载队列 id
+        enqueueId = mDownloadManager.enqueue(request);
+    }
+    ```
 
 2. 注册接收下载完成的广播
-```java
-BroadcastReceiver receiver = new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        long downloadCompletedId = intent.getLongExtra(
-                DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-        // 检查是否是自己的下载队列 id, 有可能是其他应用的
-        if (enqueueId != downloadCompletedId) {
-            return;
-        }
-        DownloadManager.Query query = new DownloadManager.Query();
-        query.setFilterById(enqueueId);
-        Cursor c = mDownloadManager.query(query);
-        if (c.moveToFirst()) {
-            int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
-            // 下载失败也会返回这个广播，所以要判断下是否真的下载成功
-            if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-                // 获取下载好的 apk 路径
-                String uriString = c.getString(c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
-                // 提示用户安装
-                promptInstall(Uri.parse("file://" + uriString));
+    ```java
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            long downloadCompletedId = intent.getLongExtra(
+                    DownloadManager.EXTRA_DOWNLOAD_ID, 0);
+            // 检查是否是自己的下载队列 id, 有可能是其他应用的
+            if (enqueueId != downloadCompletedId) {
+                return;
+            }
+            DownloadManager.Query query = new DownloadManager.Query();
+            query.setFilterById(enqueueId);
+            Cursor c = mDownloadManager.query(query);
+            if (c.moveToFirst()) {
+                int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                // 下载失败也会返回这个广播，所以要判断下是否真的下载成功
+                if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
+                    // 获取下载好的 apk 路径
+                    String uriString = c.getString(c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                    // 提示用户安装
+                    promptInstall(Uri.parse("file://" + uriString));
+                }
             }
         }
-    }
-};
-// 注册广播, 设置只接受下载完成的广播
-registerReceiver(receiver, new IntentFilter(
-        DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-```
+    };
+    // 注册广播, 设置只接受下载完成的广播
+    registerReceiver(receiver, new IntentFilter(
+            DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+    ```
 
-3. 提示用户安装
-```java
-private void promptInstall(Uri data) {
-    Intent promptInstall = new Intent(Intent.ACTION_VIEW)
-            .setDataAndType(data, "application/vnd.android.package-archive");
-    // FLAG_ACTIVITY_NEW_TASK 可以保证安装成功时可以正常打开 app
-    promptInstall.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    startActivity(promptInstall);
-}
-```
-就是这样，运行 app 看下效果吧
+3. 取消注册广播, 不取消注册的话, 调用`recreate`时会报`Are you missing a call to unregisterReceiver()?`错误
+    ```java
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    
+    	unregisterReceiver(mBroadcastReceiver);
+    }
+    ```
+
+
+4. 提示用户安装
+    ```java
+    private void promptInstall(Uri data) {
+        Intent promptInstall = new Intent(Intent.ACTION_VIEW)
+                .setDataAndType(data, "application/vnd.android.package-archive");
+        // FLAG_ACTIVITY_NEW_TASK 可以保证安装成功时可以正常打开 app
+        promptInstall.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(promptInstall);
+    }
+    ```
+    就是这样，运行 app 看下效果吧
 
 ##总结
 坑比较多，花了3天时间才完全实现这个效果
@@ -103,3 +114,7 @@ Intent promptInstall = new Intent(Intent.ACTION_VIEW)
 * [在应用中更新App版本](http://blog.csdn.net/caroline_wendy/article/details/50475854)
 * [DownloadManager补漏](http://www.cnblogs.com/wlrhnh/p/4641105.html)
 * [全局接收下载完成的广播](http://www.cnblogs.com/zhengxt/p/3657833.html)
+
+##更新纪录
+* 2016年3月8日 添加取消注册广播的代码
+* 2016年1月22日 发布
