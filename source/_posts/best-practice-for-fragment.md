@@ -3,14 +3,14 @@ date: 2016-01-20 16:13:38
 tags:
 - android
 ---
-##初始化 Fragment
+## 初始化 Fragment
 对于不需要接收参数的`Fragment`，只需要实现
 ```java
 public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 ```
 方法即可
 
-##传参给 Fragment
+## 传参给 Fragment
 `Fragment`需要提供一个静态的创建方法, 通常叫做`newInstance`
 ```java
 public class DemoFragment extends Fragment {
@@ -43,19 +43,19 @@ public class DemoFragment extends Fragment {
 DemoFragment.newInstance("测试").show(getSupportFragmentManager(), "DemoFragment");
 ```
 
-##Activity 与 Fragment 之间的通讯
-###方法1
+## Activity 与 Fragment 之间的通讯
+### 方法1
 在`Fragment`里通过`getActivity()`来直接调用`Activity`里面的方法
 例如
 ```java
 ((MainActivity) getActivity()).doPositiveClick();
 ```
 
-###方法2
+### 方法2
 `Activity`通过实现`Fragment`里的接口来与`Fragment`进行交互
 例如
 
-####第一步
+#### 第一步
 `NewsItemFragment`定义`OnNewsItemSelectedListener`接口
 
 ```java
@@ -85,7 +85,7 @@ public class NewsItemFragment extends Fragment {
 }
 ```
 
-####第二步
+#### 第二步
 `NewsItemFragment`调用`onNewsItemSelected`方法
 
 ```java
@@ -96,7 +96,7 @@ public void onListItemClick(ListView l, View v, int position, long id) {
 }
 ```
 
-####第三步
+#### 第三步
 `MainActivity`里实现`OnNewsItemSelectedListener`接口
 
 ```java
@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity implements NewsItemFragment.
 ```
 方法2比方法1更复杂，但是在某些情况下可能必须要这样实现
 
-##注意
+## 注意
 * `Fragment`之间不可直接进行通讯，需通过`Activity`来控制
 
-##参考文档
+## 参考文档
 * [correctly creating fragments](https://plus.google.com/+AndroidDevelopers/posts/bCD7Zvd945d)
 * [Best practice for instantiating a new Android Fragment](http://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment/9245510#9245510)
 * [Communicating between a fragment and an activity - best practices](http://stackoverflow.com/questions/14247954/communicating-between-a-fragment-and-an-activity-best-practices)

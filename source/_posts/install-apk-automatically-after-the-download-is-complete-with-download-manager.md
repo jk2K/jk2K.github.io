@@ -3,10 +3,10 @@ date: 2016-01-22 16:22:16
 tags:
 - android
 ---
-##运行环境
+## 运行环境
 * Android 5.1.1, API 22
 
-##解决方案
+## 解决方案
 1. 下载新版本的 `apk`
     ```java
     public void downloadNewVersion() {
@@ -72,21 +72,21 @@ tags:
     ```
     就是这样，运行 app 看下效果吧
 
-##总结
+## 总结
 坑比较多，花了3天时间才完全实现这个效果
 1个坑是必须使用`setDataAndType()`，而不能单独使用`setData()`和`setType()`
 另外一个坑是`getUriForDownloadedFile`现在返回的是`content://`这种格式的链接了，无法用于启动`intent`
 最后一个坑是`intent`必须设置`FLAG_ACTIVITY_NEW_TASK`, 否则安装完成后无法正常打开`app`
 
-##常见问题
-###提示`解析程序包时出现问题`
-####答
+## 常见问题
+### 提示`解析程序包时出现问题`
+#### 答
 `mDownloadManager.getUriForDownloadedFile(enqueueId)`返回的`Uri`是这种格式的`content://downloads/my_downloads/83`, 这种格式的`Uri`启动`intent`会报`解析程序包时出现问题`
 
-###No Activity found to handle Intent
+### No Activity found to handle Intent
 > No Activity found to handle Intent { act=android.intent.action.VIEW dat=/storage/sdcard/download/demo.apk typ=application/vnd.android.package-archive
 
-####答 
+#### 答 
 可能原因1:
 有可能是没有权限读取这个文件或者文件路径错误
 
@@ -101,11 +101,11 @@ Intent promptInstall = new Intent(Intent.ACTION_VIEW)
 单独设置`data`和`type`也会造成这个错误，原因请看[http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri)](http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri))
 你会发现无论何时你去设置`data`或者`type`, 另外一个都会自动的变为空, 例如: `setData()`会使得`type`参数值为空, 如果你想让两者都生效的话只能使用`setDataAndType()`
 
-###提示`应用程序未安装`
-####答
+### 提示`应用程序未安装`
+#### 答
 有可能是因为`APK` 签名不一致, 比如之前是`debug`版(无签名), 现在你更新安装`release`版(有签名), 就会出现这个问题
 
-##参考链接
+## 参考链接
 * [Android 安卓系统提示应用程序未安装的解决方法](http://blog.csdn.net/ljz2009y/article/details/7645734)
 * [Android DownloadManager and Media Scanner](http://stackoverflow.com/questions/22736258/android-downloadmanager-and-media-scanner)
 * [Android: install .apk programmatically](http://stackoverflow.com/a/4969421/2227031)
@@ -115,6 +115,6 @@ Intent promptInstall = new Intent(Intent.ACTION_VIEW)
 * [DownloadManager补漏](http://www.cnblogs.com/wlrhnh/p/4641105.html)
 * [全局接收下载完成的广播](http://www.cnblogs.com/zhengxt/p/3657833.html)
 
-##更新纪录
+## 更新纪录
 * 2016年3月8日 添加取消注册广播的代码
 * 2016年1月22日 发布
