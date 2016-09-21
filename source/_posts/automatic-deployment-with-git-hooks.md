@@ -1,15 +1,15 @@
-title: 通过git hooks自动部署代码
+title: 通过 Git hooks 自动部署代码
 date: 2014-05-23 12:36:13
 tags:
 - git
 ---
-###准备条件
+## 准备条件
 * 假设web目录为/www/example.com
 *  本地git目录为/website_dev
 * 公共git仓库地址为http://git.example.com/test/test.git
 * git用户为username, 密码为password
 
-###步骤
+## 步骤
 1.  在/www/example.com目录下执行以下命令
 ```sh
 git clone http://git.example.com/test/test.git
@@ -26,7 +26,7 @@ git push product master
 ```
 4. 搞定了, 请验证一下是否正确自动部署代码
 
-###结语
+## 结语
 1. 自动输入帐号密码
     ```sh
     http://username:password@git.example.com/test/test.git

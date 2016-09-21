@@ -1,39 +1,39 @@
-title: windows下配置一个更安全的mysql
+title: windows 下配置一个更安全的 MySQL
 date: 2014-04-08 16:22:40
 tags:
 - mysql
 ---
-###环境
-* mysql版本：mysql-5.6.16-winx64.zip
-* windows版本：Microsoft Windows Server 2008 R2 Enterprise
+## 环境
+* MySQL 版本：mysql-5.6.16-winx64.zip
+* windows 版本：Microsoft Windows Server 2008 R2 Enterprise
 
-###安装步骤
+## 安装步骤
 1. 解压mysql-5.6.16-winx64.zip至e:\software\mysql
 2. 将e:\software\mysql\bin添加至系统变量path中，使得cmd中可以直接运行bin文件夹下的程序
 3. 修改mysql目录下的my-default.ini为my.ini，按情况修改配置
 4. 将mysql安装为windows服务，然后启动mysql
 
-###将mysql安装为windows服务
+## 将mysql安装为windows服务
 ```bash
 C:\Users\Administrator> mysqld --install mysql --defaults-file=e:\software\mysql\my.ini
 ```
 
-###去除mysql服务
+## 去除mysql服务
 ```bash
 C:\Users\Administrator> mysqld --remove
 ```
 
-###启动mysql
+## 启动mysql
 ```bash
 C:\Users\Administrator> net start mysql
 ```
 
-###关闭mysql
+## 关闭mysql
 ```bash
 C:\Users\Administrator> net stop mysql
 ```
 
-###mysql配置
+## mysql配置
 ```Ini
 [mysqld]
 # 设置mysql的安装目录
@@ -49,7 +49,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 # 设置默认字符集
 character-set-server=utf8
 ```
-###mysql安全加固
+## mysql安全加固
 * 修改root用户口令，删除空口令
 默认安装的MySQL的root用户是空密码的，为了安全起见，必须修改为强密码，所谓的强密码，至少8位，由字母、数字和符号组成的不规律密码。使用MySQL自带的命令mysaladmin修改root密码，同时也可以登陆数据库，修改数据库mysql下的user表的字段内容，修改方法如下所示：
 ```bash

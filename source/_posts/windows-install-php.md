@@ -1,13 +1,13 @@
-title: windows安装配置php
+title: windows 安装配置 PHP
 date: 2014-04-08 16:11:19
 tags:
 - php
 ---
-##环境：
+## 环境：
 * [php-5.5.11-Win32-VC11-x64.zip](http://windows.php.net/download/)
 * WindowsServer 2008 R2
 
-##说明：
+## 说明：
 * Non Thread Safe和Thread Safe版本的区别
 Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，以防止有新请求就启动新线程的CGI执行方式而耗尽系统资源。Non Thread Safe是非线程安全，在执行时不进行线程（Thread）安全检查。
 * VC6、VC9和VC11的区别
@@ -15,7 +15,7 @@ Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，
 * php.ini-development和php.ini-production的区别
 这两个都可以更名为php.ini, 只不过php.ini-development里的配置更适合开发用，php.ini-production里的配置更适合发布产品时用，例如当网站正式上线运营时，应该将php.ini-production更名为php.ini
 
-##安装步骤
+## 安装步骤
 1. 解压php-5.5.11-Win32-VC11-x64.zip，得到php.ini-development, 将其更名为php.ini
 2. 打开php.ini，修改以下参数
     * 找到date.timezone，设置时区为中国时区
@@ -53,6 +53,6 @@ Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，
 3. 保存退出
 4. 测试php是否安装配置成功, 可以执行php解压目录下的php.exe
 
-##常见问题：
+## 常见问题：
 * 提示缺少msvcr110.dll
 请安装[Visual C++ Redistributable 2012](http://download.microsoft.com/download/9/C/D/9CD480DC-0301-41B0-AAAB-FE9AC1F60237/VSU4/vcredist_x64.exe)

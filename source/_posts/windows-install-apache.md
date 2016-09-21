@@ -1,13 +1,13 @@
-title: windows安装配置apache
+title: windows 安装配置 Apache
 date: 2014-04-08 16:07:22
 tags:
 - apache
 ---
-##环境
+## 环境
 * [httpd-2.4.9-win64.zip](http://www.apachelounge.com/download/)
 * WindowsServer 2008 R2
 
-##安装配置
+## 安装配置
 1. 解压httpd-2.4.9-win64.zip到e:/software/Apache24，以下以e:/software/Apache24为apache的存放目录做说明，目录可以随意改
 2. 打开conf/httpd.conf, 按照如下步骤修改
     * 找到`ServerRoot "c:/Apache24"`，改为
@@ -48,5 +48,5 @@ net stop apache #关闭apache
 * 查看apache配置是否正确，可以执行
 `httpd -n apache -t`
 
-##常见问题：
+## 常见问题：
 * 提示缺少msvcr100.dll，请安装[Visual C++ Redistributable 2010](http://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe)

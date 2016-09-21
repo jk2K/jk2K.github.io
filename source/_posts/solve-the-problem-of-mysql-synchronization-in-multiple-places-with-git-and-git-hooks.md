@@ -1,4 +1,4 @@
-title: 用 git 和 git hooks 解决多地开发时 MySQL 同步问题
+title: 用 Git 和 Git hooks 解决多地开发时 MySQL 同步问题
 date: 2016-03-17 16:38:45
 tags:
 - git

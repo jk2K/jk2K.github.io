@@ -1,12 +1,12 @@
-title: discuz添加在发布文章时输入自定义关键字的功能
+title: discuz 添加在发布文章时输入自定义关键字的功能
 date: 2014-04-08 11:15:54
 tags:
 - discuz
 ---
-##环境
+## 环境
 * discuz x3.1
 
-##操作步骤：
+## 操作步骤：
 1. 修改`template/default/portal/portalcp_article.htm`，在大约206行，修改为如下代码
     ```php
     <dt>{lang article_author}</dt>
