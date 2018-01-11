@@ -47,7 +47,7 @@
     </span>
 
     
-<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+<header class="panel-cover " style="background-image: url(/images/background-cover.jpg)">
   <div class="panel-main">
     <div class="panel-main__inner panel-inverted">
     <div class="panel-main__content">
@@ -138,59 +138,34 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2014/05/discuz-database-access-denied-for-user-localhost/" title="link to post.title">discuz 因数据库权限错误报 Access denied for user</a></h2>
-      <p class="excerpt">
-    
-      情景在现笔者根据数据库用户权限最小化的原则分配给discuz的数据库用户权限为select, insert, update, delete, index, 但是安装的时候报Access denied for user错误，经过一番资料查找，得出可能是缺少create, drop权限
-分析discuz的数据库用户权限至少应该包括select, insert, update, delete, index, create, drop, alter, 如果缺少的话, 可能会报Access denied 
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2014-05-17T13:07:12.000Z" class="post-list__meta--date date">2014-05-17</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/discuz/">discuz</a>
-</span><a class="btn-border-small" href="/2014/05/discuz-database-access-denied-for-user-localhost/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2014/04/discuz-add-custom-keyword-when-publish-article/" title="link to post.title">discuz 添加在发布文章时输入自定义关键字的功能</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2012/04/ipv6-cause-unable-connect-to-mysql-database/" title="link to post.title">ipv6 导致无法访问 MySQL 数据库</a></h2>
       <p class="excerpt">
     
       环境
-discuz x3.1
+xp sp3系统
+PHP 5.2.6
+Apache httpd-2.2.22-win32-x86-no_ssl
+MySQL 5.5.20.0
 
-操作步骤：
-修改template/default/portal/portalcp_article.htm，在大约206行，修改为如下代码
- &amp;lt;dt&amp;gt;&amp;#123;lang article_author&amp;#125;&amp;lt;/dt&amp;gt;&amp;lt;dd&amp;gt;&amp;lt;input type=&quot;text&quot; name=&quot;author&quot; class=&quot;px p_fre&quot; value=&quot;$article[author]&quot; size=&quot;30&quot; /&amp;gt;&amp;lt;/dd&amp;g
+情景再现前天我在学校的网络中心里安装配置好一个bt程序后，回到寝室里发现数据库不能连接，mysql数据库报错为Could not connect to the specific instance MySQL Error Number 2003，Can&amp;#39;t connect to MySQL server on &amp;#39;localhost&amp;#
     &hellip;
       </p>
-      <div class="post-list__meta"><time datetime="2014-04-08T03:15:54.000Z" class="post-list__meta--date date">2014-04-08</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/discuz/">discuz</a>
-</span><a class="btn-border-small" href="/2014/04/discuz-add-custom-keyword-when-publish-article/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2012/10/discuz-custom-exit-page/" title="link to post.title">discuz 自定义退出时的跳转地址</a></h2>
-      <p class="excerpt">
-    
-      需求如果我们想在discuz退出后跳转到其他页面，比如说另外定制的一个页面，该怎么做呢?
-知识discuz处理退出时的跳转地址的文件是source\class_member.php
-具体步骤假如我们有一个logout.html的文件，需要在discuz退出后跳转到它
-打开source\class_member.php，找到on_logout()函数
-修改为如下代码function on_logout() &amp;#123;	global $_G;	$ucsynlogout = $this-&amp;gt;se
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2012-10-15T04:40:07.000Z" class="post-list__meta--date date">2012-10-15</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/discuz/">discuz</a>
-</span><a class="btn-border-small" href="/2012/10/discuz-custom-exit-page/">继续阅读</a></div>
+      <div class="post-list__meta"><time datetime="2012-04-28T05:24:21.000Z" class="post-list__meta--date date">2012-04-28</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/ipv6/">ipv6</a>
+</span><a class="btn-border-small" href="/2012/04/ipv6-cause-unable-connect-to-mysql-database/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
     
   </ol>
 
+
+  <nav class="pagination" role="navigation">
+    
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/2/#blog">Prev</a>
+    
+    
+  </nav>
 
 
 </div>
