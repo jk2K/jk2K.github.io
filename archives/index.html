@@ -138,6 +138,28 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/01/how-to-install-composer-package-hosted-on-your-own-gitlab-installation-instance/" title="link to post.title">如何安装托管在私有 GitLab 实例上的 composer 包?</a></h2>
+      <p class="excerpt">
+    
+      composer 包安装方式有哪几种?一般来说开源的 PHP 包都会放在 packagist.org, Composer 直接安装就行
+私有包有以下几种安装方式
+
+在 packagist.com 购买付费服务, 不用自己维护, 省心
+搭建 Satis 实例, 相当于搭建了私有的 packagist.org, 需要自己维护服务器
+购买了 GitHub 企业版, 将包托管在企业版上
+搭建 GitLab 社区版 实例, 将包托管在这上面
+
+可以根据各自情况选择合适的方案, 笔者在这篇文章中只讲解如何安
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2018-01-27T04:54:19.000Z" class="post-list__meta--date date">2018-01-27</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/PHP/">PHP</a>
+</span><a class="btn-border-small" href="/2018/01/how-to-install-composer-package-hosted-on-your-own-gitlab-installation-instance/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2018/01/how-to-write-presentation-using-markdown/" title="link to post.title">如何使用 Markdown 写 PPT?</a></h2>
       <p class="excerpt">
     
@@ -304,33 +326,6 @@ mkdir -p /var/www/.ssh/cp /root/.ssh/id_rsa-git /var/www/.ss
       <div class="post-list__meta"><time datetime="2015-09-21T09:49:00.000Z" class="post-list__meta--date date">2015-09-21</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
   <a class="tag-link" href="/tags/ubuntu/">ubuntu</a>
 </span><a class="btn-border-small" href="/2015/09/generate-ssh-key-for-apache-user/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2015/09/custom-ssh-welcome-message-in-ubuntu/" title="link to post.title">自定义 ubuntu ssh 欢迎信息</a></h2>
-      <p class="excerpt">
-    
-      步骤
-打开/etc/update-motd.d, 这个目录下面的文件会在登录成功后按照序号的顺序先后运行
-cd /etc/update-motd.d
-
-我们找到00-header这个文件, 修改它, 在文件末尾添加如下代码
-cat &amp;lt;&amp;lt; &quot;EOT&quot;  /\_/\=( °w° )=  )   (  // (__ __)//EOT
-
-重新登录服务器就会看到如下效果啦
-
-
-
-小提示重新登录服务器后也许不会看到效果, 你再登录一次就肯定会看到啦, 就酱
-参考资料
-http://stackov
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2015-09-14T08:34:16.000Z" class="post-list__meta--date date">2015-09-14</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/ubuntu/">ubuntu</a>
-</span><a class="btn-border-small" href="/2015/09/custom-ssh-welcome-message-in-ubuntu/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
