@@ -147,16 +147,16 @@
     <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案1-自动"><a href="#方案1-自动" class="headerlink" title="方案1, 自动"></a>方案1, 自动</h3><p><code>sudo -u apache ssh-keygen -t rsa</code></p>
 <h3 id="方案2-手动"><a href="#方案2-手动" class="headerlink" title="方案2, 手动"></a>方案2, 手动</h3><p>你必须复制<code>root</code>用户生成的<code>key</code>到<code>apache</code>用户的<code>.ssh</code>文件夹下, 软链接是不行的, 必须复制, 复制, 复制, 重要的事情说三遍</p>
 <p>假设<code>apache</code>的<code>homedir</code>是<code>/var/www</code>(检查<code>/etc/passwd</code>), <code>root</code>用户生成的私钥(<code>key</code>)是<code>id_rsa-git</code></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mkdir -p /var/www/.ssh/</div><div class="line">cp /root/.ssh/id_rsa-git /var/www/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mkdir -p /var/www/.ssh/</span><br><span class="line">cp /root/.ssh/id_rsa-git /var/www/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 <p>无需复制公钥(<code>public key</code>)</p>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ul>
 <li>默认使用的私钥名称是<code>id_rsa</code>或<code>id_dsa</code>, 所以你复制过来的私钥名称得是这个</li>
 <li><code>apache</code>现在默认的运行用户为<code>daemon</code>, 他的<code>homedir</code>是<code>/usr/sbin</code>, 你可能得改成其他目录才能生效, 可以改成<code>home/daemon</code></li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">chown -R apache:apache /var/www/.ssh</div><div class="line">chmod 0700 /var/www/.ssh</div><div class="line">chmod 0600 /var/www/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">chown -R apache:apache /var/www/.ssh</span><br><span class="line">chmod 0700 /var/www/.ssh</span><br><span class="line">chmod 0600 /var/www/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 <h2 id="需求说明"><a href="#需求说明" class="headerlink" title="需求说明"></a>需求说明</h2><p>apache 在执行<code>git</code>相关命令时报<code>Could not create directory &#39;/usr/sbin/.ssh&#39;</code></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="http://stackoverflow.com/questions/7306990/generating-ssh-keys-for-apache-user" target="_blank" rel="external">http://stackoverflow.com/questions/7306990/generating-ssh-keys-for-apache-user</a></li>
+<li><a href="http://stackoverflow.com/questions/7306990/generating-ssh-keys-for-apache-user" target="_blank" rel="noopener">http://stackoverflow.com/questions/7306990/generating-ssh-keys-for-apache-user</a></li>
 </ul>
 
   </section>

@@ -148,12 +148,12 @@
 <h3 id="条件准备"><a href="#条件准备" class="headerlink" title="条件准备"></a>条件准备</h3><p>apache需加载mod_status模块</p>
 <ol>
 <li><p>打开apache配置文件httpd.conf, 搜索mod_status, 找到如下代码, 取消前面的#注释符</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><div class="line"><span class="comment">#LoadModule status_module modules/mod_status.so</span></div></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment">#LoadModule status_module modules/mod_status.so</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置查看apache服务状态的页面地址, 在httpd.conf最后一行添加如下代码</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><div class="line"><span class="section">&lt;location /server-status&gt;</span></div><div class="line">	<span class="attribute"><span class="nomarkup">sethandler</span></span> server-status</div><div class="line">	<span class="attribute"><span class="nomarkup">order</span></span> deny,allow</div><div class="line">	<span class="attribute"><span class="nomarkup">allow</span></span> from <span class="literal">all</span></div><div class="line"><span class="section">&lt;/location&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="section">&lt;location /server-status&gt;</span></span><br><span class="line">	<span class="attribute"><span class="nomarkup">sethandler</span></span> server-status</span><br><span class="line">	<span class="attribute"><span class="nomarkup">order</span></span> deny,allow</span><br><span class="line">	<span class="attribute"><span class="nomarkup">allow</span></span> from <span class="literal">all</span></span><br><span class="line"><span class="section">&lt;/location&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>访问<a href="http://localhost/server-status?refresh=1" target="_blank" rel="external">http://localhost/server-status?refresh=1</a><br>即可查看apache服务状态(其中1代表每秒刷新1次)</p>
+<li><p>访问<a href="http://localhost/server-status?refresh=1" target="_blank" rel="noopener">http://localhost/server-status?refresh=1</a><br>即可查看apache服务状态(其中1代表每秒刷新1次)</p>
 </li>
 </ol>
 <h3 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h3><ul>
@@ -164,7 +164,7 @@
 <li><p>实验3: 打开多个浏览器隐身窗口和浏览器正常窗口来访问链接，结果发现对于多个隐身窗口，apache只安排一个线程来处理访问请求，对于多个正常窗口来，apache也只安排一个线程来处理访问请求，也就是说，打开多个浏览器隐身窗口和正常窗口，apache只会开启两个线程来处理访问请求</p>
 </li>
 <li><p>实验4: 通过apache自带的性能测试工具ab来实现并发访问，实验成功，满足并发访问请求，ab使用举例如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ab -n10 -c5 http://www.baidu.com/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ab -n10 -c5 http://www.baidu.com/</span><br></pre></td></tr></table></figure>
 <p>  其中参数n代表总共要访问多少个请求<br>参数c代表并发访问多少个请求<br>最后的参数代表要访问的网址</p>
 </li>
 </ul>

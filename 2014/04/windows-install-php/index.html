@@ -145,7 +145,7 @@
 
   <section class="post">
     <h2 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h2><ul>
-<li><a href="http://windows.php.net/download/" target="_blank" rel="external">php-5.5.11-Win32-VC11-x64.zip</a></li>
+<li><a href="http://windows.php.net/download/" target="_blank" rel="noopener">php-5.5.11-Win32-VC11-x64.zip</a></li>
 <li>WindowsServer 2008 R2</li>
 </ul>
 <h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><ul>
@@ -160,9 +160,9 @@
 <li>找到date.timezone，设置时区为中国时区<br><code>date.timezone = PRC</code></li>
 <li>找到<code>; extension_dir = &quot;ext&quot;</code>，改为如下样子，取消前面的;注释符<br><code>extension_dir = &quot;e:/software/php/ext&quot;</code></li>
 <li><p>找到</p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><div class="line"><span class="comment">;extension=php_bz2.dll</span></div><div class="line"><span class="comment">;extension=php_curl.dll</span></div><div class="line"><span class="comment">;extension=php_fileinfo.dll</span></div><div class="line"><span class="comment">;extension=php_gd2.dll</span></div><div class="line"><span class="comment">;extension=php_gettext.dll</span></div><div class="line"><span class="comment">;extension=php_gmp.dll</span></div><div class="line"><span class="comment">;extension=php_intl.dll</span></div></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">;<span class="attribute">extension</span>=php_bz2.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_curl.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_fileinfo.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_gd2.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_gettext.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_gmp.dll</span><br><span class="line">;<span class="attribute">extension</span>=php_intl.dll</span><br></pre></td></tr></table></figure>
 <p>按照需要来加载这些扩展库，笔者一般加载这些</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="comment">;远程抓取页面</span></div><div class="line"><span class="attr">extension</span>=php_curl.dll</div><div class="line"><span class="comment">;图像处理</span></div><div class="line"><span class="attr">extension</span>=php_gd2.dll</div><div class="line"><span class="comment">;多字节字符串处理</span></div><div class="line"><span class="attr">extension</span>=php_mbstring.dll</div><div class="line"><span class="comment">;操作mysql数据库</span></div><div class="line"><span class="attr">extension</span>=php_mysqli.dll</div><div class="line"><span class="comment">;ssl加密传输</span></div><div class="line"><span class="attr">extension</span>=php_openssl.dll</div><div class="line"><span class="comment">;使用内存缓存，加速网站</span></div><div class="line"><span class="attr">extension</span>=php_memcache.dll</div></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment">;远程抓取页面</span></span><br><span class="line"><span class="attr">extension</span>=php_curl.dll</span><br><span class="line"><span class="comment">;图像处理</span></span><br><span class="line"><span class="attr">extension</span>=php_gd2.dll</span><br><span class="line"><span class="comment">;多字节字符串处理</span></span><br><span class="line"><span class="attr">extension</span>=php_mbstring.dll</span><br><span class="line"><span class="comment">;操作mysql数据库</span></span><br><span class="line"><span class="attr">extension</span>=php_mysqli.dll</span><br><span class="line"><span class="comment">;ssl加密传输</span></span><br><span class="line"><span class="attr">extension</span>=php_openssl.dll</span><br><span class="line"><span class="comment">;使用内存缓存，加速网站</span></span><br><span class="line"><span class="attr">extension</span>=php_memcache.dll</span><br></pre></td></tr></table></figure>
 <p>加载某个扩展库，只需取消行首的<code>;</code>符，如果没有该扩展库，请查看ext文件夹下是否有该扩展库，如果有，按照格式手动添加即可，如果没有该扩展库，需手动下载扩展库文件到ext文件夹下，最后按照格式手动添加<br>每次改动php.ini文件里的配置时，都需要重启apache才能生效</p>
 </li>
 </ul>
@@ -172,7 +172,7 @@
 <li>测试php是否安装配置成功, 可以执行php解压目录下的php.exe</li>
 </ol>
 <h2 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h2><ul>
-<li>提示缺少msvcr110.dll<br>请安装<a href="http://download.microsoft.com/download/9/C/D/9CD480DC-0301-41B0-AAAB-FE9AC1F60237/VSU4/vcredist_x64.exe" target="_blank" rel="external">Visual C++ Redistributable 2012</a></li>
+<li>提示缺少msvcr110.dll<br>请安装<a href="http://download.microsoft.com/download/9/C/D/9CD480DC-0301-41B0-AAAB-FE9AC1F60237/VSU4/vcredist_x64.exe" target="_blank" rel="noopener">Visual C++ Redistributable 2012</a></li>
 </ul>
 
   </section>

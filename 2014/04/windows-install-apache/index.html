@@ -145,7 +145,7 @@
 
   <section class="post">
     <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li><a href="http://www.apachelounge.com/download/" target="_blank" rel="external">httpd-2.4.9-win64.zip</a></li>
+<li><a href="http://www.apachelounge.com/download/" target="_blank" rel="noopener">httpd-2.4.9-win64.zip</a></li>
 <li>WindowsServer 2008 R2</li>
 </ul>
 <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><ol>
@@ -158,9 +158,9 @@
 <li>在LoadModule这段后面添加<br><code>LoadModule php5_module &quot;e:/software/php/php5apache2_4.dll&quot;</code><br>注意：由于apache版本的不同，这里不一定是<code>php5apache2_4.dll</code>，比如apache版本为2.2，这里就应该是<code>php5apache2_2.dll</code></li>
 <li>找到<code>AddType application/x-gzip .gz .tgz</code>，在其下一行添加<br><code>AddType application/x-httpd-php .php</code></li>
 <li><p>找到</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><div class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"c:/Apache24/htdocs"</span></div><div class="line"><span class="section">&lt;Directory "c:/Apache24/htdocs"&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"c:/Apache24/htdocs"</span></span><br><span class="line"><span class="section">&lt;Directory "c:/Apache24/htdocs"&gt;</span></span><br></pre></td></tr></table></figure>
 <p>修改为</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><div class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"e:/software/Apache24/htdocs"</span></div><div class="line"><span class="section">&lt;Directory "e:/software/Apache24/htdocs"&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"e:/software/Apache24/htdocs"</span></span><br><span class="line"><span class="section">&lt;Directory "e:/software/Apache24/htdocs"&gt;</span></span><br></pre></td></tr></table></figure>
 <p>htdocs是网站存放目录</p>
 </li>
 <li>找到<code>DirectoryIndex index.html</code>，修改为<br><code>DirectoryIndex index.php index.html</code></li>
@@ -172,13 +172,13 @@
 </ol>
 <ul>
 <li><p>将apache注册为windows服务<br><code>httpd -k install -n apache</code><br>以后就可以用以下命令操作apache</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">net start apache <span class="comment">#启动apache</span></div><div class="line">net stop apache <span class="comment">#关闭apache</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start apache <span class="comment">#启动apache</span></span><br><span class="line">net stop apache <span class="comment">#关闭apache</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看apache配置是否正确，可以执行<br><code>httpd -n apache -t</code></p>
 </li>
 </ul>
 <h2 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h2><ul>
-<li>提示缺少msvcr100.dll，请安装<a href="http://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe" target="_blank" rel="external">Visual C++ Redistributable 2010</a></li>
+<li>提示缺少msvcr100.dll，请安装<a href="http://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe" target="_blank" rel="noopener">Visual C++ Redistributable 2010</a></li>
 </ul>
 
   </section>

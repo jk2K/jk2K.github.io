@@ -144,13 +144,13 @@
   </header>
 
   <section class="post">
-    <h2 id="composer-包安装方式有哪几种"><a href="#composer-包安装方式有哪几种" class="headerlink" title="composer 包安装方式有哪几种?"></a>composer 包安装方式有哪几种?</h2><p>一般来说开源的 PHP 包都会放在 <a href="https://packagist.org/" target="_blank" rel="external">packagist.org</a>, Composer 直接安装就行</p>
+    <h2 id="composer-包安装方式有哪几种"><a href="#composer-包安装方式有哪几种" class="headerlink" title="composer 包安装方式有哪几种?"></a>composer 包安装方式有哪几种?</h2><p>一般来说开源的 PHP 包都会放在 <a href="https://packagist.org/" target="_blank" rel="noopener">packagist.org</a>, Composer 直接安装就行</p>
 <p>私有包有以下几种安装方式</p>
 <ul>
-<li>在 <a href="https://packagist.com/" target="_blank" rel="external">packagist.com</a> 购买付费服务, 不用自己维护, 省心</li>
-<li>搭建 <a href="https://github.com/composer/satis" target="_blank" rel="external">Satis</a> 实例, 相当于搭建了私有的 packagist.org, 需要自己维护服务器</li>
-<li>购买了 <a href="https://enterprise.github.com/" target="_blank" rel="external">GitHub 企业版</a>, 将包托管在企业版上</li>
-<li>搭建 <a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab 社区版</a> 实例, 将包托管在这上面</li>
+<li>在 <a href="https://packagist.com/" target="_blank" rel="noopener">packagist.com</a> 购买付费服务, 不用自己维护, 省心</li>
+<li>搭建 <a href="https://github.com/composer/satis" target="_blank" rel="noopener">Satis</a> 实例, 相当于搭建了私有的 packagist.org, 需要自己维护服务器</li>
+<li>购买了 <a href="https://enterprise.github.com/" target="_blank" rel="noopener">GitHub 企业版</a>, 将包托管在企业版上</li>
+<li>搭建 <a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab 社区版</a> 实例, 将包托管在这上面</li>
 </ul>
 <p>可以根据各自情况选择合适的方案, 笔者在这篇文章中只讲解如何安装托管在私有 GitLab 实例上的包</p>
 <h2 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h2><ul>
@@ -165,23 +165,23 @@
 <li>因为 git.demo.com 使用 HTTP 协议, 所以<code>secure-http</code>要设为<code>false</code></li>
 <li>设置 <code>gitlab-domains</code>, 告诉 Composer 相应的域名可以使用 GitLab API</li>
 </ul>
-<p>内容修改为如下<br><figure class="highlight json"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"config"</span>: &#123;</div><div class="line">        <span class="attr">"secure-http"</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">"gitlab-domains"</span>: [</div><div class="line">            <span class="string">"git.demo.com"</span></div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>内容修改为如下<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"secure-http"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"gitlab-domains"</span>: [</span><br><span class="line">            <span class="string">"git.demo.com"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="修改-composer-全局用户认证信息"><a href="#修改-composer-全局用户认证信息" class="headerlink" title="修改 composer 全局用户认证信息"></a>修改 composer 全局用户认证信息</h3><ul>
 <li>文件路径: <code>~/.composer/auth.json</code></li>
 <li>设置 token 后, 才有权限访问 GitLab API</li>
 </ul>
 <p>去 <code>http://git.demo.com/profile/personal_access_tokens</code> 新建一个 <code>personal access token</code></p>
-<p>内容修改为如下<br><figure class="highlight json"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"gitlab-token"</span>: &#123;</div><div class="line">        <span class="attr">"git.demo.com"</span>: <span class="string">"your person access token in git.demo.com"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>内容修改为如下<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"gitlab-token"</span>: &#123;</span><br><span class="line">        <span class="attr">"git.demo.com"</span>: <span class="string">"your person access token in git.demo.com"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>以 <code>demo/fly</code> 为例</p>
-<h3 id="添加-repository"><a href="#添加-repository" class="headerlink" title="添加 repository"></a>添加 repository</h3><p>修改 <code>composer.json</code>, 添加如下代码<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">"repositories": [</div><div class="line">  &#123;</div><div class="line">    "type": "vcs",</div><div class="line">    "url": "http://git.demo.com/demo/fly.git"</div><div class="line">  &#125;</div><div class="line">],</div></pre></td></tr></table></figure></p>
+<h3 id="添加-repository"><a href="#添加-repository" class="headerlink" title="添加 repository"></a>添加 repository</h3><p>修改 <code>composer.json</code>, 添加如下代码<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">"repositories": [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"vcs"</span>,</span><br><span class="line">    <span class="attr">"url"</span>: <span class="string">"http://git.demo.com/demo/fly.git"</span></span><br><span class="line">  &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure></p>
 <p>告诉 composer 去哪找 <code>demo/fly</code> 依赖</p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">composer require --prefer-dist demo/fly</div></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">composer require --prefer-dist demo/fly</span><br></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://getcomposer.org/doc/05-repositories.md" target="_blank" rel="external">composer repository 文档</a></li>
-<li><a href="https://getcomposer.org/doc/06-config.md#gitlab-token" target="_blank" rel="external">composer gitlab-token 文档</a></li>
-<li><a href="https://github.com/composer/composer/issues/6016#issuecomment-270001655" target="_blank" rel="external">Why composer clone my private gitlab instead only download it</a></li>
-<li><a href="https://github.com/composer/composer/issues/3542#issuecomment-113846131" target="_blank" rel="external">Composer Update Fails due to Github Authorization</a></li>
-<li><a href="https://www.greatcl.com/2016/09/03/create-private-composer-repo-with-satis/" target="_blank" rel="external">使用 Satis 创建 Composer 私有库</a></li>
+<li><a href="https://getcomposer.org/doc/05-repositories.md" target="_blank" rel="noopener">composer repository 文档</a></li>
+<li><a href="https://getcomposer.org/doc/06-config.md#gitlab-token" target="_blank" rel="noopener">composer gitlab-token 文档</a></li>
+<li><a href="https://github.com/composer/composer/issues/6016#issuecomment-270001655" target="_blank" rel="noopener">Why composer clone my private gitlab instead only download it</a></li>
+<li><a href="https://github.com/composer/composer/issues/3542#issuecomment-113846131" target="_blank" rel="noopener">Composer Update Fails due to Github Authorization</a></li>
+<li><a href="https://www.greatcl.com/2016/09/03/create-private-composer-repo-with-satis/" target="_blank" rel="noopener">使用 Satis 创建 Composer 私有库</a></li>
 </ul>
 
   </section>

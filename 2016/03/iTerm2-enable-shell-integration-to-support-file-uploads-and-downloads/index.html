@@ -145,29 +145,29 @@
 
   <section class="post">
     <h2 id="条件准备"><a href="#条件准备" class="headerlink" title="条件准备"></a>条件准备</h2><ul>
-<li><a href="https://iterm2.com/nightly/latest" target="_blank" rel="external">iTerm2 version 3 nightly builds</a></li>
+<li><a href="https://iterm2.com/nightly/latest" target="_blank" rel="noopener">iTerm2 version 3 nightly builds</a></li>
 </ul>
 <h2 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h2><p>需要在你自己的机器和想通过<code>ssh</code>远程连接的机器上都安装<code>shell integration</code></p>
-<h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl -L https://iterm2.com/misc/install_shell_integration.sh | bash</div></pre></td></tr></table></figure>
+<h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://iterm2.com/misc/install_shell_integration.sh | bash</span><br></pre></td></tr></table></figure>
 <h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><ol>
 <li><p>下载这个脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl -L https://iterm2.com/misc/`basename <span class="variable">$SHELL</span>`_startup.in &gt;&gt; \</div><div class="line">~/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://iterm2.com/misc/`basename <span class="variable">$SHELL</span>`_startup.in &gt;&gt; \</span><br><span class="line">~/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在<code>shell</code>登陆脚本中添加如下命令 (<code>.login</code> for <code>tcsh</code>, <code>.bash_profile</code> for <code>bash</code>, <code>.zshrc</code> for <code>zsh</code>, or <code>config.fish</code> file for <code>fish</code>):</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>2个机器都安装好后，现在你就可以体验拖拽上传文件和右键下载文件了</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Download-with-scp-按钮是灰色的"><a href="#Download-with-scp-按钮是灰色的" class="headerlink" title="Download with scp 按钮是灰色的"></a><code>Download with scp</code> 按钮是灰色的</h3><p>解决方案:<br>远程机器的<code>hostname</code>不对，默认是<code>localhost</code>, 需要设置为远程机器的<code>ip</code>, 可以在你远程机器的<code>shell</code>登录脚本中通过如下命令设置环境变量<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> iterm2_hostname=你远程机器的ip</div></pre></td></tr></table></figure></p>
-<p>记得这行命令要在<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`"</span></div></pre></td></tr></table></figure></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Download-with-scp-按钮是灰色的"><a href="#Download-with-scp-按钮是灰色的" class="headerlink" title="Download with scp 按钮是灰色的"></a><code>Download with scp</code> 按钮是灰色的</h3><p>解决方案:<br>远程机器的<code>hostname</code>不对，默认是<code>localhost</code>, 需要设置为远程机器的<code>ip</code>, 可以在你远程机器的<code>shell</code>登录脚本中通过如下命令设置环境变量<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> iterm2_hostname=你远程机器的ip</span><br></pre></td></tr></table></figure></p>
+<p>记得这行命令要在<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">"<span class="variable">$&#123;HOME&#125;</span>/.iterm2_shell_integration.`basename <span class="variable">$SHELL</span>`"</span></span><br></pre></td></tr></table></figure></p>
 <p>之前哦!</p>
 <p>可以通过设置<code>Preferences &gt; Profiles &gt; General &gt; Badge</code>为<code>Hostname is \(session.hostname)</code>，来检测<code>iTerm2</code>所使用的<code>hostname</code></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>iTerm2</code> 必须为<code>iTerm2 version 3</code>，可以在<code>nightly builds</code>中获取，目前的稳定版<code>2.1</code>是没有这个功能的<br>有两个问题没注意，导致开启这个特色时花了2个多小时<br>1个问题是只在我本地的机器上安装了<code>shell integration</code>, 没有在远程机器上安装<code>shell integration</code><br>第2个问题是远程机器的<code>hostname</code>不正确，导致功能不起作用, <code>Download with scp</code>按钮是灰色的</p>
 <p>这个比之前使用的的<code>rz</code>, <code>sz</code>体验要差一点，后者可以通过命令行来操作，更为快捷，但毕竟前者是官方支持，有人维护, 相信前者会越来越完善的</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://iterm2.com/shell_integration.html" target="_blank" rel="external">Shell Integration</a></li>
-<li><a href="https://gitlab.com/gnachman/iterm2/wikis/scp-not-connecting" target="_blank" rel="external">scp not connecting</a></li>
-<li><a href="https://groups.google.com/forum/#!topic/iterm2-discuss/e6EKjl0r5ig" target="_blank" rel="external">iTerm2 scp discuss</a></li>
+<li><a href="https://iterm2.com/shell_integration.html" target="_blank" rel="noopener">Shell Integration</a></li>
+<li><a href="https://gitlab.com/gnachman/iterm2/wikis/scp-not-connecting" target="_blank" rel="noopener">scp not connecting</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/iterm2-discuss/e6EKjl0r5ig" target="_blank" rel="noopener">iTerm2 scp discuss</a></li>
 </ul>
 
   </section>

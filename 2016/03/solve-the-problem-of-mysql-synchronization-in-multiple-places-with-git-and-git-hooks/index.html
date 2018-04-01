@@ -151,7 +151,7 @@
 <li>使用<code>git</code>和<code>git hooks</code>在提交和合并代码时自动相应的导出和恢复数据库, 这个方案自动化了<code>MySQL</code>的导出和恢复工作，简直完美</li>
 </ul>
 <h2 id="条件准备"><a href="#条件准备" class="headerlink" title="条件准备"></a>条件准备</h2><ul>
-<li>mysql 5.6+, 修改<code>my.cnf</code>文件, 在<code>[client]</code>下面添加<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="attr">user</span>=你的 MySQL 账号</div><div class="line"><span class="attr">password</span>=你的 MySQL 密码</div></pre></td></tr></table></figure>
+<li>mysql 5.6+, 修改<code>my.cnf</code>文件, 在<code>[client]</code>下面添加<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">user</span>=你的 MySQL 账号</span><br><span class="line"><span class="attr">password</span>=你的 MySQL 密码</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>以解决<code>MySQL5.6 Using a password on the command line interface can be insecure</code>的问题</p>
@@ -161,20 +161,20 @@
 </ul>
 <h2 id="动手干"><a href="#动手干" class="headerlink" title="动手干"></a>动手干</h2><ol>
 <li><p>首先编辑<code>pre-commit</code>文件，这个钩子在代码<code>commit</code>之前可以执行脚本</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[your editor] /path/to/your/repo/.git/hooks/pre-commit</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[your editor] /path/to/your/repo/.git/hooks/pre-commit</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>写<code>pre-commit</code>钩子, 我们将要告诉系统去把我们的数据库<code>dump</code>到坚果云里面</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mysqldump --skip-extended-insert demo &gt; /Users/lee/我的坚果云/demo.sql</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysqldump --skip-extended-insert demo &gt; /Users/lee/我的坚果云/demo.sql</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>给<code>pre-commit</code>加上可执行权限</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">chmod +x /path/to/your/repo/.git/hooks/pre-commit</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x /path/to/your/repo/.git/hooks/pre-commit</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>现在我们来写<code>post-merge</code>钩子，我们将要告诉系统在<code>git</code>合并代码的时候，把放在坚果云上的<code>sql</code>文件恢复到本地的<code>MySQL</code>数据库中</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[your editor] /path/to/your/repo/.git/hooks/post-merge</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[your editor] /path/to/your/repo/.git/hooks/post-merge</span><br></pre></td></tr></table></figure>
 <p> 在<code>post-merge</code>文件里写上</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mysql demo &lt; ~/我的坚果云/demo.sql</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql demo &lt; ~/我的坚果云/demo.sql</span><br></pre></td></tr></table></figure>
 <p> 不要忘记给<code>post-merge</code>加上可执行权限啦</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">chmod +x /path/to/your/repo/.git/hooks/post-merge</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x /path/to/your/repo/.git/hooks/post-merge</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>就是这样，现在当你<code>commit</code>和<code>pull</code>代码时，<code>MySQL</code>数据库可以自动的在多个地方同步啦</p>
 </li>
@@ -182,7 +182,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用坚果云来同步导出的<code>sql</code>文件是因为坚果云在国内是唯一一家靠谱的云存储公司，其他国内的公司倒闭的倒闭，阉割的阉割，就是不让人省心<br>如果可以无障碍畅游网络的话，可以选择更好的<code>Dropbox</code></p>
 <p>享受生活吧</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="http://ben.kulbertis.org/2011/10/synchronizing-a-mysql-database-with-git-and-git-hooks/" target="_blank" rel="external">Synchronizing a MySQL Database with Git and Git Hooks</a></li>
+<li><a href="http://ben.kulbertis.org/2011/10/synchronizing-a-mysql-database-with-git-and-git-hooks/" target="_blank" rel="noopener">Synchronizing a MySQL Database with Git and Git Hooks</a></li>
 </ul>
 
   </section>

@@ -147,25 +147,25 @@
     <h2 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h2><ul>
 <li>假设web目录为/www/example.com</li>
 <li>本地git目录为/website_dev</li>
-<li>公共git仓库地址为<a href="http://git.example.com/test/test.git" target="_blank" rel="external">http://git.example.com/test/test.git</a></li>
+<li>公共git仓库地址为<a href="http://git.example.com/test/test.git" target="_blank" rel="noopener">http://git.example.com/test/test.git</a></li>
 <li>git用户为username, 密码为password</li>
 </ul>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>在/www/example.com目录下执行以下命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> http://git.example.com/<span class="built_in">test</span>/test.git</div><div class="line">git remote add product http://username:password@git.example.com/<span class="built_in">test</span>/test.git</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> http://git.example.com/<span class="built_in">test</span>/test.git</span><br><span class="line">git remote add product http://username:password@git.example.com/<span class="built_in">test</span>/test.git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在公共git仓库的hooks里创建post-receive(windows版本为post-receive.bat, linux版本才是post-receive)，在post-receive里添加代码</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">cd /www/<span class="built_in">example</span>.com</div><div class="line">git pull <span class="built_in">product</span> master</div></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/www/example.com</span></span><br><span class="line">git pull product master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在本地git目录/website_dev下执行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">git push product master</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git push product master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>搞定了, 请验证一下是否正确自动部署代码</p>
 </li>
 </ol>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><ol>
 <li><p>自动输入帐号密码</p>
- <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">http://username:password@git.example.com/<span class="built_in">test</span>/test.git</div></pre></td></tr></table></figure>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">http://username:password@git.example.com/<span class="built_in">test</span>/test.git</span><br></pre></td></tr></table></figure>
 <p> 这种链接结构可以让git记住密码，不用每次提交或签出时都输入账号密码，username是git的账号名称，password是账号密码</p>
 </li>
 <li><p>post-receive里的代码请根据实际情况进行修改</p>

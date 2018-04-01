@@ -146,10 +146,10 @@
   <section class="post">
     <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>打开<code>/etc/update-motd.d</code>, 这个目录下面的文件会在登录成功后按照序号的顺序先后运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/update-motd.d</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/update-motd.d</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>我们找到<code>00-header</code>这个文件, 修改它, 在文件末尾添加如下代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">cat &lt;&lt; <span class="string">"EOT"</span></div><div class="line">  /\_/\</div><div class="line">=( °w° )=</div><div class="line">  )   (  //</div><div class="line"> (__ __)//</div><div class="line">EOT</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt; <span class="string">"EOT"</span></span><br><span class="line">  /\_/\</span><br><span class="line">=( °w° )=</span><br><span class="line">  )   (  //</span><br><span class="line"> (__ __)//</span><br><span class="line">EOT</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重新登录服务器就会看到如下效果啦</p>
 
@@ -157,8 +157,8 @@
 </ol>
 <h2 id="小提示"><a href="#小提示" class="headerlink" title="小提示"></a>小提示</h2><p>重新登录服务器后也许不会看到效果, 你再登录一次就肯定会看到啦, 就酱</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://stackoverflow.com/questions/25214084/cant-get-ascii-art-to-echo-to-console" target="_blank" rel="external">http://stackoverflow.com/questions/25214084/cant-get-ascii-art-to-echo-to-console</a></li>
-<li><a href="http://www.cnphp6.com/archives/50433" target="_blank" rel="external">http://www.cnphp6.com/archives/50433</a></li>
+<li><a href="http://stackoverflow.com/questions/25214084/cant-get-ascii-art-to-echo-to-console" target="_blank" rel="noopener">http://stackoverflow.com/questions/25214084/cant-get-ascii-art-to-echo-to-console</a></li>
+<li><a href="http://www.cnphp6.com/archives/50433" target="_blank" rel="noopener">http://www.cnphp6.com/archives/50433</a></li>
 </ul>
 
   </section>
