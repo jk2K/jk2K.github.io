@@ -138,6 +138,23 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2015/09/generate-ssh-key-for-apache-user/" title="link to post.title">为 apache 运行用户创建 ssh key</a></h2>
+      <p class="excerpt">
+    
+      解决方案方案1, 自动sudo -u apache ssh-keygen -t rsa
+方案2, 手动你必须复制root用户生成的key到apache用户的.ssh文件夹下, 软链接是不行的, 必须复制, 复制, 复制, 重要的事情说三遍
+假设apache的homedir是/var/www(检查/etc/passwd), root用户生成的私钥(key)是id_rsa-git
+mkdir -p /var/www/.ssh/cp /root/.ssh/id_rsa-git /var/www/.ss
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2015-09-21T09:49:00.000Z" class="post-list__meta--date date">2015-09-21</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/ubuntu/">ubuntu</a>
+</span><a class="btn-border-small" href="/2015/09/generate-ssh-key-for-apache-user/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2015/09/custom-ssh-welcome-message-in-ubuntu/" title="link to post.title">自定义 ubuntu ssh 欢迎信息</a></h2>
       <p class="excerpt">
     
@@ -317,25 +334,6 @@ WindowsServer 2008 R2
       <div class="post-list__meta"><time datetime="2014-04-08T08:07:22.000Z" class="post-list__meta--date date">2014-04-08</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
   <a class="tag-link" href="/tags/apache/">apache</a>
 </span><a class="btn-border-small" href="/2014/04/windows-install-apache/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2014/04/discuz-add-custom-keyword-when-publish-article/" title="link to post.title">discuz 添加在发布文章时输入自定义关键字的功能</a></h2>
-      <p class="excerpt">
-    
-      环境
-discuz x3.1
-
-操作步骤：
-修改template/default/portal/portalcp_article.htm，在大约206行，修改为如下代码
- &amp;lt;dt&amp;gt;&amp;#123;lang article_author&amp;#125;&amp;lt;/dt&amp;gt;&amp;lt;dd&amp;gt;&amp;lt;input type=&quot;text&quot; name=&quot;author&quot; class=&quot;px p_fre&quot; value=&quot;$article[author]&quot; size=&quot;30&quot; /&amp;gt;&amp;lt;/dd&amp;g
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2014-04-08T03:15:54.000Z" class="post-list__meta--date date">2014-04-08</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/discuz/">discuz</a>
-</span><a class="btn-border-small" href="/2014/04/discuz-add-custom-keyword-when-publish-article/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
