@@ -1,9 +1,17 @@
-.DS_Store
-._*
-.idea
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
-.deploy*/
+# hidden files
+.*
+!.git*
+!.editorconfig
+!.nojekyll
+!.travis.yml
+
+# bundler cache
+_site
+vendor
+
+# rubygem
+*.gem
+
+# npm dependencies
+node_modules
+package-lock.json
