@@ -186,6 +186,10 @@ exclude:
   - gulpfile.js
   - node_modules
   - package*.json
+  - slides
+
+keep_files:
+  - slides
 
 jekyll-archives:
   enabled: [categories, tags]
