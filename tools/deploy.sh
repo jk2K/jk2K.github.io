@@ -57,6 +57,7 @@ build() {
 
 test() {
   bundle exec htmlproofer \
+    --file-ignore "/slides/" \
     --disable-external \
     --check-html \
     --allow_hash_href \
