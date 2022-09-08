@@ -57,7 +57,7 @@ All-in-One 应用开发平台
 逐步发展为快速解决业务问题的应用开发平台和面向中大客户的企业级平台这两个套餐分级迭代。
 值得一提的是轻流和神策一样，也采用了订阅制收费模式，这样保证了不管是公有云还是私有化部署都能以高迭代速度去服务客户
 
-轻流着么做了，我们是不是也要着么做呢？即
+轻流这么做了，我们是不是也要这么做呢？即
 1. 开发一套通过表单来进行数据建模的工具，支持流程管理，支持自动化任务
 2. 开发可视化的 UI 编辑器，支持移动应用、门户、报表的制作
 3. 提供插件能力，方便 IT 人员进行系统集成和功能扩展
@@ -141,9 +141,28 @@ AppCube 的做法类似 Power Platform，对于无代码技术路线，提供可
 
 解法
 - 对于 A，我们可以参考国外的 [Airtable](https://airtable.com/)、国内飞书的[多维表格](https://bitable.feishu.cn/)、腾讯文档[在线表格](https://docs.qq.com/home/product#excel)，支持多人协作，支持大批量数据的操作，支持多种数据类型
+
+Airtable 截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/airtable-screenshot.png)
+
+多维表格截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/bittable-screenshot.gif)
+
 - 对于 B，我们可以参考苹果的[捷径](https://support.apple.com/guide/shortcuts/welcome/ios)，国外的 [Zapier](https://zapier.com/)，这些工具可编排逻辑，可通过引入更多应用和操作来扩展使用场景，在使用难度和逻辑可维护性上做到了一个好的平衡
+
+苹果捷径截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/mac-shortcut-screenshot.png)
+
+Zapier 截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/zapier-screenshot.png)
+
 - 对于 C，我们可以参考国外的 [Notion](https://www.notion.so/)、国内的[息流](https://flowus.cn/)，提供让用户更聚焦内容的工具，通过 AI 或者模版化的方式自动匹配好样式
 
+Notion 截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/notion-screenshot.png)
+
+Markdown 截图
+![](/assets/img/use-first-principle-thinking-to-think-about-how-to-improve-business-productivity/markdown-screenshot.gif)
 
 ## 总结
 如果想打造一个能提升生产力的平台，最好方式就是用最快速度帮助遇到问题的人解决掉问题
