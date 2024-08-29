@@ -68,12 +68,12 @@ goatcounter:
 #
 theme_mode: # [light | dark]
 
-# The CDN endpoint for images.
+# The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
+# will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: /assets/img/logo.jpg
@@ -86,7 +86,7 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 comments:
-  active: disqus # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  provider: disqus # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
   disqus:
     shortname: jk2K # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
