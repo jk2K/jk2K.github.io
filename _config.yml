@@ -14,9 +14,9 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: jk2K 的博客 # the main title
+title: jk2K's personal blog # the main title
 
-tagline: 哈喽, 我是叶萌, 一名来自中国的创意工作者 # it will display as the sub-title
+tagline: hi, Let's build something # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   分享对技术、商业、常识的认识和见解
