@@ -17,7 +17,7 @@ Gemini CLI 是 Google 2025 年 6 月 25 号发布的开源 AI 编码 agent，以
 
 介绍一个 Gemini CLI 的用例：生成一个 30 秒的短视频，讲述橘猫环游澳大利亚的冒险故事
 
-{% include embed/video.html src='/assets/video/GenMedia-demo-keyword.mp4' %}
+{% include embed/youtube.html id='BBsggHJGu28' %}
 
 上述视频的提示词
 > Make me a 30s video showing the story of a ginger cat's adventures around Australia
